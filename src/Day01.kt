@@ -1,17 +1,27 @@
 fun main() {
-    fun part1(input: List<String>): Int {
-        return input.size
+    fun countIncreases(input: List<Int>): Int {
+        return input
+            .zipWithNext { prev, next -> next > prev }
+            .count { it }
     }
 
-    fun part2(input: List<String>): Int {
-        return input.size
+    fun part1(input: List<Int>): Int {
+        return countIncreases(input)
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
+    fun part2(input: List<Int>): Int {
+        val transformed = input
+            .windowed(
+                size = 3,
+                step = 1,
+                partialWindows = false
+            ) { window ->
+                window.sum()
+            }
+        return countIncreases(transformed)
+    }
 
-    val input = readInput("Day01")
+    val input = readInput("Day01").map(String::toInt)
     println(part1(input))
     println(part2(input))
 }

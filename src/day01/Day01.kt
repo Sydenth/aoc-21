@@ -1,11 +1,12 @@
 package day01
 
+import checkWithOutput
 import readInput
 
 fun main() {
     val testInput = readInput("day01", "Day01_test").map(String::toInt)
-    check(day01_part1(testInput) == 7)
-    check(day01_part2(testInput) == 5)
+    checkWithOutput(day01_part1(testInput) == 7)
+    checkWithOutput(day01_part2(testInput) == 5)
 
     val input = readInput("day01", "Day01").map(String::toInt)
     println(day01_part1(input))

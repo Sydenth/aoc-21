@@ -1,11 +1,12 @@
 package template
 
+import checkWithOutput
 import readInput
 
 fun main() {
     val testInput = readInput("dayXY", "DayXY_test")
-    check(dayXY_part1(testInput) == 1)
-    check(dayXY_part2(testInput) == 1)
+    checkWithOutput(dayXY_part1(testInput) == 1)
+    checkWithOutput(dayXY_part2(testInput) == 1)
 
     val input = readInput("dayXY", "DayXY")
     println(dayXY_part1(input))

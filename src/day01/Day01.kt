@@ -1,3 +1,8 @@
+package day01
+
+import readInput
+import java.io.File
+
 fun main() {
     fun countIncreases(input: List<Int>): Int {
         return input
@@ -21,11 +26,11 @@ fun main() {
         return countIncreases(transformed)
     }
 
-    val testInput = readInput("Day01_test").map(String::toInt)
+    val testInput = readInput("day01", "Day01_test").map(String::toInt)
     check(part1(testInput) == 7)
     check(part2(testInput) == 5)
 
-    val input = readInput("Day01").map(String::toInt)
+    val input = readInput("day01", "Day01").map(String::toInt)
     println(part1(input))
     println(part2(input))
 }

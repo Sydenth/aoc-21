@@ -1,16 +1,16 @@
-package day01
+package year2021.day01
 
+import PuzzleInput
 import checkWithOutput
-import readInput
 
 fun main() {
-    val testInput = readInput("day01", "Day01_test").map(String::toInt)
-    checkWithOutput(day01_part1(testInput) == 7)
-    checkWithOutput(day01_part2(testInput) == 5)
+    val puzzleInput = PuzzleInput(2021, 1, String::toInt)
 
-    val input = readInput("day01", "Day01").map(String::toInt)
-    println(day01_part1(input))
-    println(day01_part2(input))
+    checkWithOutput(day01_part1(puzzleInput.test), 7)
+    checkWithOutput(day01_part2(puzzleInput.test), 5)
+
+    println(day01_part1(puzzleInput.real))
+    println(day01_part2(puzzleInput.real))
 }
 
 fun day01_part1(input: List<Int>): Int {

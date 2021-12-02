@@ -1,18 +1,16 @@
-package day02
+package year2021.day02
 
+import PuzzleInput
 import checkWithOutput
-import readInput
 
 fun main() {
-    val testInput = readInput("day02", "Day02_test")
-    val preparedTestInput = prepareInput(testInput)
-    checkWithOutput(day02_part1(preparedTestInput) == 150)
-    checkWithOutput(day02_part2(preparedTestInput) == 900)
+    val puzzleInput = PuzzleInput(2020, 2, ::parseLine)
 
-    val input = readInput("day02", "Day02")
-    val preparedInput = prepareInput(input)
-    println(day02_part1(preparedInput))
-    println(day02_part2(preparedInput))
+    checkWithOutput(day02_part1(puzzleInput.test), 150)
+    checkWithOutput(day02_part2(puzzleInput.test), 900)
+
+    println(day02_part1(puzzleInput.real))
+    println(day02_part2(puzzleInput.real))
 }
 
 data class Command(
@@ -37,13 +35,9 @@ data class Position(
     val aim: Int = 0
 )
 
-fun prepareInput(input: List<String>): List<Command> {
-    val regex = """(\w+) (\d+)""".toRegex()
-
-    return input.map { line ->
-        val (direction, amount) = regex.find(line)?.destructured ?: error("malformed input: $line")
-        Command(Direction.of(direction), amount.toInt())
-    }
+fun parseLine(line: String): Command {
+    val (direction, amount) = line.split(' ')
+    return Command(Direction.of(direction), amount.toInt())
 }
 
 fun day02_part1(input: List<Command>): Int {

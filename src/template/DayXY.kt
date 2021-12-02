@@ -1,22 +1,22 @@
 package template
 
+import PuzzleInput
 import checkWithOutput
-import readInput
 
 fun main() {
-    val testInput = readInput("dayXY", "DayXY_test")
-    checkWithOutput(dayXY_part1(testInput) == 1)
-    checkWithOutput(dayXY_part2(testInput) == 1)
+    val puzzleInput = PuzzleInput(0, 0, String::toInt)
 
-    val input = readInput("dayXY", "DayXY")
-    println(dayXY_part1(input))
-    println(dayXY_part2(input))
+    checkWithOutput(dayXY_part1(puzzleInput.test), 1)
+    checkWithOutput(dayXY_part2(puzzleInput.test), 1)
+
+    println(dayXY_part1(puzzleInput.real))
+    println(dayXY_part2(puzzleInput.real))
 }
 
-fun dayXY_part1(input: List<String>): Int {
+fun dayXY_part1(input: List<Int>): Int {
     return input.size
 }
 
-fun dayXY_part2(input: List<String>): Int {
+fun dayXY_part2(input: List<Int>): Int {
     return input.size
 }

@@ -9,7 +9,7 @@ import kotlin.time.measureTimedValue
 
 fun String.md5(): String = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteArray())).toString(16)
 
-inline fun <reified T> checkWithOutput(actual: T, expected: T) {
+fun <T> checkWithOutput(actual: T, expected: T) {
     if (actual == expected) {
         println("$actual == $expected: Check passed")
     } else {
@@ -18,9 +18,9 @@ inline fun <reified T> checkWithOutput(actual: T, expected: T) {
 }
 
 class PuzzleInput<T>(year: Int, day: Int, transform: (String) -> T) {
-    private val yearStr = "year$year"
     private val dayStr = "Day${day.toString().padStart(2, '0')}"
-    private val path = "src/$yearStr/${dayStr.lowercase()}/$dayStr"
+    private val path = "src/year$year/${dayStr.lowercase()}/$dayStr"
+
     val real: List<T> = Paths.get("$path.txt").readLines().map(transform)
     val test: List<T> = Paths.get("${path}_test.txt").readLines().map(transform)
 }

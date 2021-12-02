@@ -3,19 +3,19 @@ package template
 import readInput
 
 fun main() {
-    fun part1(input: List<String>): Int {
-        return input.size
-    }
+    val testInput = readInput("dayXY", "DayXY_test")
+    check(dayXY_part1(testInput) == 1)
+    check(dayXY_part2(testInput) == 1)
 
-    fun part2(input: List<String>): Int {
-        return input.size
-    }
+    val input = readInput("dayXY", "DayXY")
+    println(dayXY_part1(input))
+    println(dayXY_part2(input))
+}
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("dayxy", "DayXY_test")
-    check(part1(testInput) == 1)
+fun dayXY_part1(input: List<String>): Int {
+    return input.size
+}
 
-    val input = readInput("dayxy", "DayXY")
-    println(part1(input))
-    println(part2(input))
+fun dayXY_part2(input: List<String>): Int {
+    return input.size
 }

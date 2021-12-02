@@ -4,7 +4,7 @@ import PuzzleInput
 import checkWithOutput
 
 fun main() {
-    val puzzleInput = PuzzleInput(2020, 2, ::parseLine)
+    val puzzleInput = PuzzleInput(2021, 2, ::parseLine)
 
     checkWithOutput(day02_part1(puzzleInput.test), 150)
     checkWithOutput(day02_part2(puzzleInput.test), 900)

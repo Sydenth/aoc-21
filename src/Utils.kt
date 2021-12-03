@@ -24,3 +24,9 @@ class PuzzleInput<T>(year: Int, day: Int, transform: (String) -> T) {
     val real: List<T> = Paths.get("$path.txt").readLines().map(transform)
     val test: List<T> = Paths.get("${path}_test.txt").readLines().map(transform)
 }
+
+fun printAll(vararg obj: Any) {
+    println(obj.joinToString(", "))
+}
+
+fun <T> List<T>.mutate(block: MutableList<T>.() -> Unit): List<T> = toMutableList().apply(block)

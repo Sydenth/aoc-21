@@ -1,7 +1,7 @@
 package template
 
-import PuzzleInput
-import checkWithOutput
+import utils.PuzzleInput
+import utils.checkWithOutput
 
 fun main() {
     val puzzleInput = PuzzleInput(0, 0, String::toInt)

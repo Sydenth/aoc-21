@@ -1,7 +1,7 @@
 package year2020.day02
 
-import PuzzleInput
-import checkWithOutput
+import utils.PuzzleInput
+import utils.checkWithOutput
 
 fun main() {
     val puzzleInput = PuzzleInput(2020, 2, ::parseLine)

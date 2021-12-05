@@ -1,9 +1,7 @@
 package year2021.day03
 
-import PuzzleInput
-import checkWithOutput
-import mutate
-import printAll
+import utils.PuzzleInput
+import utils.checkWithOutput
 import kotlin.math.pow
 
 fun main() {

@@ -1,3 +1,5 @@
+package utils
+
 import java.math.BigInteger
 import java.nio.file.Paths
 import java.security.MessageDigest
@@ -17,16 +19,8 @@ fun <T> checkWithOutput(actual: T, expected: T) {
     }
 }
 
-class PuzzleInput<T>(year: Int, day: Int, transform: (String) -> T) {
-    private val dayStr = "Day${day.toString().padStart(2, '0')}"
-    private val path = "src/year$year/${dayStr.lowercase()}/$dayStr"
-
-    val real: List<T> = Paths.get("$path.txt").readLines().map(transform)
-    val test: List<T> = Paths.get("${path}_test.txt").readLines().map(transform)
-}
-
 fun printAll(vararg obj: Any) {
     println(obj.joinToString(", "))
 }
 
-fun <T> List<T>.mutate(block: MutableList<T>.() -> Unit): List<T> = toMutableList().apply(block)
+//fun <T> List<T>.mutate(block: MutableList<T>.() -> Unit): List<T> = toMutableList().apply(block)

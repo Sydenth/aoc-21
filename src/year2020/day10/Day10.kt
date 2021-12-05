@@ -1,7 +1,7 @@
 package year2020.day10
 
-import PuzzleInput
-import checkWithOutput
+import utils.PuzzleInput
+import utils.checkWithOutput
 
 fun main() {
     val puzzleInput = PuzzleInput(2020, 10, String::toInt)

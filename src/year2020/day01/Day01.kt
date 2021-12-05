@@ -1,7 +1,7 @@
 package year2020.day01
 
-import PuzzleInput
-import checkWithOutput
+import utils.PuzzleInput
+import utils.checkWithOutput
 import java.util.*
 
 fun main() {

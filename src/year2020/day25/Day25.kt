@@ -10,7 +10,7 @@ fun main() {
     println(day25_part1(puzzleInput.real))
 }
 
-fun day25_part1(input: List<Long>): Long {
+private fun day25_part1(input: List<Long>): Long {
     val cardPubKey = input[0]
     val doorPubKey = input[1]
 
@@ -24,7 +24,7 @@ fun day25_part1(input: List<Long>): Long {
     return encryptionKey
 }
 
-fun getLoopSize(pubKey: Long): Int {
+private fun getLoopSize(pubKey: Long): Int {
     var loopSize = 0
     var transformed = 1L
     while (transformed != pubKey) {
@@ -34,4 +34,4 @@ fun getLoopSize(pubKey: Long): Int {
     return loopSize
 }
 
-fun transform(value: Long, subjectNumber: Long): Long = (value * subjectNumber) % 20201227
+private fun transform(value: Long, subjectNumber: Long): Long = (value * subjectNumber) % 20201227

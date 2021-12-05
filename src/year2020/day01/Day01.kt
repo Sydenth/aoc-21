@@ -14,7 +14,7 @@ fun main() {
     println(day01_part2(puzzleInput.real))
 }
 
-fun day01_part1(input: List<Int>): Int {
+private fun day01_part1(input: List<Int>): Int {
     input.indices.forEach { firstIndex ->
         val first = input[firstIndex]
         input.drop(firstIndex + 1).forEach { second ->
@@ -24,7 +24,7 @@ fun day01_part1(input: List<Int>): Int {
     return -1
 }
 
-fun day01_part2(input: List<Int>): Int {
+private fun day01_part2(input: List<Int>): Int {
     input.indices.forEach { firstIndex ->
         val first = input[firstIndex]
         input.drop(firstIndex + 1).indices.forEach { secondIndex ->

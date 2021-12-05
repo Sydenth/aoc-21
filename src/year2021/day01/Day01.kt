@@ -13,11 +13,11 @@ fun main() {
     println(day01_part2(puzzleInput.real))
 }
 
-fun day01_part1(input: List<Int>): Int {
+private fun day01_part1(input: List<Int>): Int {
     return countIncreases(input)
 }
 
-fun day01_part2(input: List<Int>): Int {
+private fun day01_part2(input: List<Int>): Int {
     val transformed = input
         .windowed(
             size = 3,
@@ -29,7 +29,7 @@ fun day01_part2(input: List<Int>): Int {
     return countIncreases(transformed)
 }
 
-fun countIncreases(input: List<Int>): Int {
+private fun countIncreases(input: List<Int>): Int {
     return input
         .zipWithNext { prev, next -> next > prev }
         .count { it }

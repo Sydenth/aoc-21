@@ -14,7 +14,7 @@ fun main() {
     println(day03_part2(puzzleInput.real))
 }
 
-fun day03_part1(input: List<String>): Int {
+private fun day03_part1(input: List<String>): Int {
     val binaryLength = input.first().length
 
     val gamma = (0 until binaryLength)
@@ -29,7 +29,7 @@ fun day03_part1(input: List<String>): Int {
     return gamma * epsilon
 }
 
-fun day03_part2(input: List<String>): Int {
+private fun day03_part2(input: List<String>): Int {
     val oxygen = filter(input, keepMostCommon = true)
     val co2 = filter(input, keepMostCommon = false)
 
@@ -37,7 +37,7 @@ fun day03_part2(input: List<String>): Int {
 }
 
 
-fun filter(input: List<String>, keepMostCommon: Boolean): Int {
+private fun filter(input: List<String>, keepMostCommon: Boolean): Int {
     val binaryLength = input.first().length
 
     val greaterChar = if (keepMostCommon) '1' else '0'

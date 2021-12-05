@@ -13,12 +13,12 @@ fun main() {
     println(day02_part2(puzzleInput.real))
 }
 
-data class PasswordPolicy(
+private data class PasswordPolicy(
     val range: IntRange,
     val char: Char
 )
 
-fun parseLine(line: String): Pair<PasswordPolicy, String> {
+private fun parseLine(line: String): Pair<PasswordPolicy, String> {
     val split = line.split(" ")
 
     return PasswordPolicy(
@@ -30,13 +30,13 @@ fun parseLine(line: String): Pair<PasswordPolicy, String> {
     ) to split[2]
 }
 
-fun day02_part1(input: List<Pair<PasswordPolicy, String>>): Int {
+private fun day02_part1(input: List<Pair<PasswordPolicy, String>>): Int {
     return input.count { (policy, password) ->
         password.count { it == policy.char } in policy.range
     }
 }
 
-fun day02_part2(input: List<Pair<PasswordPolicy, String>>): Int {
+private fun day02_part2(input: List<Pair<PasswordPolicy, String>>): Int {
     return input.count { (policy, password) ->
         (password[policy.range.first - 1] == policy.char) xor (password[policy.range.last - 1] == policy.char)
     }

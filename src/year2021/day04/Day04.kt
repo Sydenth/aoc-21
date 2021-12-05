@@ -49,11 +49,11 @@ private class Board(val numbers: List<Int>) {
     }
 }
 
-fun day04_part1(input: List<String>): Int {
+private fun day04_part1(input: List<String>): Int {
     return solve(input, findFirst = true)
 }
 
-fun day04_part2(input: List<String>): Int {
+private fun day04_part2(input: List<String>): Int {
     return solve(input, findFirst = false)
 }
 

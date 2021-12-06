@@ -7,21 +7,21 @@ fun main() {
     val puzzleInput = PuzzleInput(2021, 6) { it }
 
     val testInput = parseLine(puzzleInput.test.first())
-    checkWithOutput(dayXY_part1(testInput), 5934L)
-    checkWithOutput(dayXY_part2(testInput), 26984457539L)
+    checkWithOutput(day06_part1(testInput), 5934L)
+    checkWithOutput(day06_part2(testInput), 26984457539L)
 
     val input = parseLine(puzzleInput.real.first())
-    println(dayXY_part1(input))
-    println(dayXY_part2(input))
+    println(day06_part1(input))
+    println(day06_part2(input))
 }
 
 fun parseLine(line: String): List<Int> = line.split(',').map(String::toInt)
 
-fun dayXY_part1(input: List<Int>): Long {
+fun day06_part1(input: List<Int>): Long {
     return simulateFishGrowth(input, 80)
 }
 
-fun dayXY_part2(input: List<Int>): Long {
+fun day06_part2(input: List<Int>): Long {
     return simulateFishGrowth(input, 256)
 }
 

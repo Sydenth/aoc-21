@@ -7,11 +7,11 @@ import java.lang.Integer.max
 fun main() {
     val puzzleInput = PuzzleInput(2021, 5, ::parseInput)
 
-    checkWithOutput(dayXY_part1(puzzleInput.test), 5)
-    checkWithOutput(dayXY_part2(puzzleInput.test), 12)
+    checkWithOutput(day05_part1(puzzleInput.test), 5)
+    checkWithOutput(day05_part2(puzzleInput.test), 12)
 
-    println(dayXY_part1(puzzleInput.real))
-    println(dayXY_part2(puzzleInput.real))
+    println(day05_part1(puzzleInput.real))
+    println(day05_part2(puzzleInput.real))
 }
 
 private data class Point(val x: Int, val y: Int)
@@ -35,11 +35,11 @@ private fun parseInput(line: String): Line {
         .let { (x1, y1, x2, y2) -> Line(Point(x1, y1), Point(x2, y2)) }
 }
 
-private fun dayXY_part1(input: List<Line>): Int {
+private fun day05_part1(input: List<Line>): Int {
     return countIntersections(input.filterNot(Line::isDiagonal))
 }
 
-private fun dayXY_part2(input: List<Line>): Int {
+private fun day05_part2(input: List<Line>): Int {
     return countIntersections(input)
 }
 

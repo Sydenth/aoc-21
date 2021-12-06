@@ -17,27 +17,22 @@ fun main() {
 private data class Point(val x: Int, val y: Int)
 
 private data class Line(val start: Point, val end: Point) {
+    private val xRange = if (start.x <= end.x) start.x..end.x else start.x downTo end.x
+    private val yRange = if (start.y <= end.y) start.y..end.y else start.y downTo end.y
+
     val isDiagonal = start.x != end.x && start.y != end.y
-    val xRange = if (start.x <= end.x) start.x..end.x else start.x downTo end.x
-    val xDiff = end.x - start.x
-    val yDiff = end.y - start.y
-    val yRange = if (start.y <= end.y) start.y..end.y else start.y downTo end.y
+    val points = when {
+        xRange.count() == 1 -> yRange.map { Point(xRange.first, it) }
+        yRange.count() == 1 -> xRange.map { Point(it, yRange.first) }
+        else -> xRange.zip(yRange).map { (x, y) -> Point(x, y) }
+    }
 }
 
 private fun parseInput(line: String): Line {
     return line
-        .split(" -> ")
-        .map { range ->
-            range
-                .split(',')
-                .map(String::toInt)
-                .let { (x, y) ->
-                    Point(x, y)
-                }
-        }
-        .let { (start, end) ->
-            Line(start, end)
-        }
+        .split(" -> ", ",")
+        .map(String::toInt)
+        .let { (x1, y1, x2, y2) -> Line(Point(x1, y1), Point(x2, y2)) }
 }
 
 private fun dayXY_part1(input: List<Line>): Int {
@@ -49,17 +44,9 @@ private fun dayXY_part2(input: List<Line>): Int {
 }
 
 private fun countIntersections(input: List<Line>): Int {
-    val pointMap = mutableMapOf<Point, Int>()
-
-    input.forEach { line ->
-        val maxLength = max(line.xRange.count(), line.yRange.count())
-
-        repeat(maxLength) { step ->
-            val x = step * (line.xDiff / (maxLength - 1)) + line.start.x
-            val y = step * (line.yDiff / (maxLength - 1)) + line.start.y
-            pointMap.merge(Point(x, y), 1, Int::plus)
-        }
-    }
-
-    return pointMap.values.count { it >= 2 }
+    return input
+        .flatMap { line -> line.points }
+        .groupingBy { it }
+        .eachCount()
+        .count { (_, count) -> count > 1 }
 }

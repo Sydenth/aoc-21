@@ -9,8 +9,6 @@ import kotlin.io.path.readLines
 import kotlin.time.ExperimentalTime
 import kotlin.time.measureTimedValue
 
-fun String.md5(): String = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteArray())).toString(16)
-
 fun <T> checkWithOutput(actual: T, expected: T) {
     if (actual == expected) {
         println("$actual == $expected: Check passed")
@@ -25,5 +23,3 @@ fun printAll(vararg obj: Any) {
 
 fun linesToInt(input: List<String>): List<Int> = input.map(String::toInt)
 fun linesToLong(input: List<String>): List<Long> = input.map(String::toLong)
-
-//fun <T> List<T>.mutate(block: MutableList<T>.() -> Unit): List<T> = toMutableList().apply(block)

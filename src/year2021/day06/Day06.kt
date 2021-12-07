@@ -15,17 +15,17 @@ fun main() {
     println(day06_part2(input))
 }
 
-fun parseLine(line: String): List<Int> = line.split(',').map(String::toInt)
+private fun parseLine(line: String): List<Int> = line.split(',').map(String::toInt)
 
-fun day06_part1(input: List<Int>): Long {
+private fun day06_part1(input: List<Int>): Long {
     return simulateFishGrowth(input, 80)
 }
 
-fun day06_part2(input: List<Int>): Long {
+private fun day06_part2(input: List<Int>): Long {
     return simulateFishGrowth(input, 256)
 }
 
-fun simulateFishGrowth(input: List<Int>, days: Int): Long {
+private fun simulateFishGrowth(input: List<Int>, days: Int): Long {
     val ageMap = input
         .groupBy { it }
         .mapValues { (_, count) -> count.size.toLong() }

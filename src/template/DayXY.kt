@@ -14,10 +14,10 @@ fun main() {
     println(dayXY_part2(puzzleInput.real))
 }
 
-fun dayXY_part1(input: List<Int>): Int {
+private fun dayXY_part1(input: List<Int>): Int {
     return input.size
 }
 
-fun dayXY_part2(input: List<Int>): Int {
+private fun dayXY_part2(input: List<Int>): Int {
     return input.size
 }

@@ -35,9 +35,11 @@ private data class Position(
     val aim: Int = 0
 )
 
-private fun parseInput(line: String): Command {
-    val (direction, amount) = line.split(' ')
-    return Command(Direction.of(direction), amount.toInt())
+private fun parseInput(input: List<String>): List<Command> {
+    return input.map { line ->
+        val (direction, amount) = line.split(' ')
+        Command(Direction.of(direction), amount.toInt())
+    }
 }
 
 private fun day02_part1(input: List<Command>): Int {

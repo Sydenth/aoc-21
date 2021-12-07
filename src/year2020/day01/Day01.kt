@@ -2,10 +2,11 @@ package year2020.day01
 
 import utils.PuzzleInput
 import utils.checkWithOutput
+import utils.linesToInt
 import java.util.*
 
 fun main() {
-    val puzzleInput = PuzzleInput(2020, 1, String::toInt)
+    val puzzleInput = PuzzleInput(2020, 1, ::linesToInt)
 
     checkWithOutput(day01_part1(puzzleInput.test), 514579)
     checkWithOutput(day01_part2(puzzleInput.test), 241861950)

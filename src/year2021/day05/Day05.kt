@@ -28,11 +28,13 @@ private data class Line(val start: Point, val end: Point) {
     }
 }
 
-private fun parseInput(line: String): Line {
-    return line
-        .split(" -> ", ",")
-        .map(String::toInt)
-        .let { (x1, y1, x2, y2) -> Line(Point(x1, y1), Point(x2, y2)) }
+private fun parseInput(input: List<String>): List<Line> {
+    return input.map { line ->
+        line
+            .split(" -> ", ",")
+            .map(String::toInt)
+            .let { (x1, y1, x2, y2) -> Line(Point(x1, y1), Point(x2, y2)) }
+    }
 }
 
 private fun day05_part1(input: List<Line>): Int {

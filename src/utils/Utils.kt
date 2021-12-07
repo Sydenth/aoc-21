@@ -23,4 +23,7 @@ fun printAll(vararg obj: Any) {
     println(obj.joinToString(", "))
 }
 
+fun linesToInt(input: List<String>): List<Int> = input.map(String::toInt)
+fun linesToLong(input: List<String>): List<Long> = input.map(String::toLong)
+
 //fun <T> List<T>.mutate(block: MutableList<T>.() -> Unit): List<T> = toMutableList().apply(block)

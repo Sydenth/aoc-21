@@ -4,7 +4,7 @@ import utils.PuzzleInput
 import utils.checkWithOutput
 
 fun main() {
-    val puzzleInput = PuzzleInput(2021, 6) { it }
+    val puzzleInput = PuzzleInput(2021, 6)
 
     val testInput = parseLine(puzzleInput.test.first())
     checkWithOutput(day06_part1(testInput), 5934L)

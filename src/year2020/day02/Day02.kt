@@ -4,7 +4,7 @@ import utils.PuzzleInput
 import utils.checkWithOutput
 
 fun main() {
-    val puzzleInput = PuzzleInput(2020, 2, ::parseLine)
+    val puzzleInput = PuzzleInput(2020, 2, ::parseInput)
 
     checkWithOutput(day02_part1(puzzleInput.test), 2)
     checkWithOutput(day02_part2(puzzleInput.test), 1)
@@ -18,16 +18,18 @@ private data class PasswordPolicy(
     val char: Char
 )
 
-private fun parseLine(line: String): Pair<PasswordPolicy, String> {
-    val split = line.split(" ")
+private fun parseInput(input: List<String>): List<Pair<PasswordPolicy, String>> {
+    return input.map { line ->
+        val split = line.split(" ")
 
-    return PasswordPolicy(
-        range = with(split[0]) {
-            val (start, end) = split("-").map(String::toInt)
-            start..end
-        },
-        char = split[1][0]
-    ) to split[2]
+        PasswordPolicy(
+            range = with(split[0]) {
+                val (start, end) = split("-").map(String::toInt)
+                start..end
+            },
+            char = split[1][0]
+        ) to split[2]
+    }
 }
 
 private fun day02_part1(input: List<Pair<PasswordPolicy, String>>): Int {

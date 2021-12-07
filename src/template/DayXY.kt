@@ -2,9 +2,10 @@ package template
 
 import utils.PuzzleInput
 import utils.checkWithOutput
+import utils.linesToInt
 
 fun main() {
-    val puzzleInput = PuzzleInput(0, 0, String::toInt)
+    val puzzleInput = PuzzleInput(0, 0, ::linesToInt)
 
     checkWithOutput(dayXY_part1(puzzleInput.test), 1)
     checkWithOutput(dayXY_part2(puzzleInput.test), 1)

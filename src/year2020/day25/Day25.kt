@@ -2,9 +2,10 @@ package year2020.day25
 
 import utils.PuzzleInput
 import utils.checkWithOutput
+import utils.linesToLong
 
 fun main() {
-    val puzzleInput = PuzzleInput(2020, 25, String::toLong)
+    val puzzleInput = PuzzleInput(2020, 25, ::linesToLong)
 
     checkWithOutput(day25_part1(puzzleInput.test), 14897079)
     println(day25_part1(puzzleInput.real))

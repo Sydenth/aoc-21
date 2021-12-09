@@ -33,7 +33,6 @@ class HeightMap(val values: List<List<ValuePoint>>) {
     }
 
     fun findBasins(): List<Set<ValuePoint>> {
-
         return findMinima().map { minimum ->
             buildSet {
                 add(minimum)

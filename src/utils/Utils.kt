@@ -14,3 +14,26 @@ fun printAll(vararg obj: Any) {
 
 fun linesToInt(input: List<String>): List<Int> = input.map(String::toInt)
 fun linesToLong(input: List<String>): List<Long> = input.map(String::toLong)
+
+fun <T> List<T>.rows(columns: Int): List<List<T>> {
+    return windowed(columns, columns)
+}
+
+fun <T> List<T>.columns(columns: Int): List<List<T>> {
+    return (0 until columns).map { y ->
+        IntProgression.fromClosedRange(y, size - 1, columns).let(::slice)
+    }
+}
+
+fun <T> List<List<T>>.transpose(): List<List<T>> {
+    if (isEmpty()) return this
+
+    val width = first().size
+    check(all { it.size == width }) { "All nested lists must have the same size, but sizes were ${map { it.size }}" }
+
+    return List(width) { col ->
+        List(size) { row ->
+            this[row][col]
+        }
+    }
+}

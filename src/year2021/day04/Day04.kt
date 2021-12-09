@@ -2,6 +2,8 @@ package year2021.day04
 
 import utils.PuzzleInput
 import utils.checkWithOutput
+import utils.columns
+import utils.rows
 
 fun main() {
     val puzzleInput = PuzzleInput(2021, 4)
@@ -35,11 +37,8 @@ private fun getBoards(input: List<String>): List<Board> {
 }
 
 private class Board(val numbers: List<Int>) {
-    private val horizontalLines = numbers.windowed(5, 5)
-    private val verticalLines = (0 until 5).map { y ->
-        val progression = IntProgression.fromClosedRange(y, numbers.size - 1, 5)
-        numbers.slice(progression)
-    }
+    private val horizontalLines = numbers.rows(5)
+    private val verticalLines = numbers.columns(5)
 
     private fun List<List<Int>>.checkLinesForWin(drawnNumbers: List<Int>): Boolean =
         any { line -> line.all { number -> number in drawnNumbers } }

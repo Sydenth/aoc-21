@@ -2,7 +2,7 @@ package year2021.day09
 
 import utils.PuzzleInput
 import utils.checkWithOutput
-import utils.transpose
+import utils.getNeighbors
 
 fun main() {
     val puzzleInput = PuzzleInput(2021, 9) { input ->
@@ -26,14 +26,16 @@ data class ValuePoint(val x: Int, val y: Int, val value: Int) {
 }
 
 class HeightMap(val values: List<List<ValuePoint>>) {
-    fun findMinima(): Set<ValuePoint> {
-        val horizontalLowPoints = findRowMinima(values)
-        val verticalLowPoints = findRowMinima(values.transpose())
-        return horizontalLowPoints.intersect(verticalLowPoints)
+    fun findMinima(): List<ValuePoint> {
+        return values.flatMap { row ->
+            row.filter { point ->
+                val neighbors = values.getNeighbors(point.x, point.y, withDiagonal = false)
+                neighbors.all { it.value > point.value }
+            }
+        }
     }
 
     fun findBasins(): List<Set<ValuePoint>> {
-
         return findMinima().map { minimum ->
             buildSet {
                 add(minimum)
@@ -41,40 +43,10 @@ class HeightMap(val values: List<List<ValuePoint>>) {
                 var newPoints = listOf(minimum)
                 while (newPoints.isNotEmpty()) {
                     newPoints = newPoints
-                        .flatMap { getDirectNeighbors(it) }
+                        .flatMap { values.getNeighbors(it.x, it.y, withDiagonal = false) }
                         .filter { it.value < 9 && it !in this }
                     addAll(newPoints)
                 }
-            }
-        }
-    }
-
-    private fun findRowMinima(rows: List<List<ValuePoint>>): Set<ValuePoint> {
-        return buildSet {
-            rows.forEach { row ->
-                var lastPoint = ValuePoint(0, 0, Int.MAX_VALUE)
-                var currentMinimum = ValuePoint(0, 0, Int.MAX_VALUE)
-
-                row.forEachIndexed { index, point ->
-                    if (point < lastPoint) {
-                        currentMinimum = point
-                        if (index == row.size - 1) add(point)
-                    } else if (point > lastPoint) {
-                        add(currentMinimum)
-                    }
-                    lastPoint = point
-                }
-            }
-        }
-    }
-
-    private fun getDirectNeighbors(point: ValuePoint): List<ValuePoint> {
-        return buildList {
-            with(point) {
-                if (x > 0) add(values[y][x - 1])
-                if (x < values.first().size - 1) add(values[y][x + 1])
-                if (y > 0) add(values[y - 1][x])
-                if (y < values.size - 1) add(values[y + 1][x])
             }
         }
     }
@@ -90,5 +62,5 @@ private fun day09_part2(heightMap: HeightMap): Int {
         .map { it.size }
         .sorted()
         .takeLast(3)
-        .let { (a, b, c) -> a * b * c }
+        .reduce(Int::times)
 }

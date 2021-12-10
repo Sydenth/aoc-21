@@ -31,15 +31,15 @@ class Command(line: String) {
 
         val stack = Stack<Char>()
 
-        line.forEach { char ->
-            when (char) {
-                in bracketPairs.keys -> stack.push(char)
+        line.forEach { bracket ->
+            when (bracket) {
+                in bracketPairs.keys -> stack.push(bracket)
                 in bracketPairs.values -> {
                     val latestBracket = stack.pop()
-                    if (char != bracketPairs[latestBracket])
-                        return ParseResult.Corrupted(char)
+                    if (bracket != bracketPairs[latestBracket])
+                        return ParseResult.Corrupted(bracket)
                 }
-                else -> error("Unknown character: $char")
+                else -> error("Unknown character: $bracket")
             }
         }
 

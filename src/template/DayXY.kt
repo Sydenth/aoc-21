@@ -8,16 +8,16 @@ fun main() {
     val puzzleInput = PuzzleInput(0, 0, ::linesToInt)
 
     checkWithOutput(dayXY_part1(puzzleInput.test), 1)
-    checkWithOutput(dayXY_part2(puzzleInput.test), 1)
+//    checkWithOutput(dayXY_part2(puzzleInput.test), 1)
 
     println(dayXY_part1(puzzleInput.real))
-    println(dayXY_part2(puzzleInput.real))
+//    println(dayXY_part2(puzzleInput.real))
 }
 
 private fun dayXY_part1(input: List<Int>): Int {
-    return input.size
+    return 0
 }
 
 private fun dayXY_part2(input: List<Int>): Int {
-    return input.size
+    return 0
 }

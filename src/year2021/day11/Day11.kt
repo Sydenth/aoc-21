@@ -30,7 +30,7 @@ data class Grid(val values: List<List<ValuePoint>>) {
             row.map { point ->
                 point.copy(value = point.value + 1)
             }.toMutableList()
-        }.toMutableList()
+        }
 
         val flashed = mutableListOf<ValuePoint>()
         var newlyFlashed: List<ValuePoint>
@@ -39,7 +39,7 @@ data class Grid(val values: List<List<ValuePoint>>) {
             newlyFlashed = mutableGrid
                 .flatten()
                 .filter { it.value > 9 && it !in flashed }
-            flashed.addAll(newlyFlashed)
+                .also(flashed::addAll)
 
             newlyFlashed
                 .flatMap { mutableGrid.getNeighbors(it.x, it.y, withDiagonal = true) }

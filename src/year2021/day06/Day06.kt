@@ -4,15 +4,13 @@ import utils.PuzzleInput
 import utils.checkWithOutput
 
 fun main() {
-    val puzzleInput = PuzzleInput(2021, 6)
+    val puzzleInput = PuzzleInput(2021, 6) { input -> input.first().split(',').map(String::toInt) }
 
-    val testInput = parseLine(puzzleInput.test.first())
-    checkWithOutput(day06_part1(testInput), 5934L)
-    checkWithOutput(day06_part2(testInput), 26984457539L)
+    puzzleInput.test(::day06_part1, listOf(5934L))
+    puzzleInput.test(::day06_part2, listOf(26984457539L))
 
-    val input = parseLine(puzzleInput.real.first())
-    println(day06_part1(input))
-    println(day06_part2(input))
+    println(day06_part1(puzzleInput.real))
+    println(day06_part2(puzzleInput.real))
 }
 
 private fun parseLine(line: String): List<Int> = line.split(',').map(String::toInt)

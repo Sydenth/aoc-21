@@ -7,7 +7,7 @@ import utils.linesToLong
 fun main() {
     val puzzleInput = PuzzleInput(2020, 25, ::linesToLong)
 
-    checkWithOutput(day25_part1(puzzleInput.test), 14897079)
+    puzzleInput.test(::day25_part1, listOf(14897079))
     println(day25_part1(puzzleInput.real))
 }
 

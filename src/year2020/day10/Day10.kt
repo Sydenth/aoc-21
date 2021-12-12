@@ -7,8 +7,8 @@ import utils.linesToInt
 fun main() {
     val puzzleInput = PuzzleInput(2020, 10, ::linesToInt)
 
-    checkWithOutput(day10_part1(puzzleInput.test), 220)
-//    checkWithOutput(day10_part2(puzzleInput.test), 19208)
+    puzzleInput.test(::day10_part1, listOf(220))
+//    puzzleInput.test(::day10_part2, listOf(19208))
 
     println(day10_part1(puzzleInput.real))
 //    println(day10_part2(puzzleInput.real))

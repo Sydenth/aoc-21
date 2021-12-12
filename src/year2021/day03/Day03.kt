@@ -5,10 +5,10 @@ import utils.checkWithOutput
 import kotlin.math.pow
 
 fun main() {
-    val puzzleInput = PuzzleInput(2021, 3)
+    val puzzleInput = PuzzleInput(2021, 3) { it }
 
-    checkWithOutput(day03_part1(puzzleInput.test), 198)
-    checkWithOutput(day03_part2(puzzleInput.test), 230)
+    puzzleInput.test(::day03_part1, listOf(198))
+    puzzleInput.test(::day03_part2, listOf(230))
 
     println(day03_part1(puzzleInput.real))
     println(day03_part2(puzzleInput.real))

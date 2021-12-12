@@ -7,8 +7,8 @@ import java.lang.Integer.max
 fun main() {
     val puzzleInput = PuzzleInput(2021, 5, ::parseInput)
 
-    checkWithOutput(day05_part1(puzzleInput.test), 5)
-    checkWithOutput(day05_part2(puzzleInput.test), 12)
+    puzzleInput.test(::day05_part1, listOf(5))
+    puzzleInput.test(::day05_part2, listOf(12))
 
     println(day05_part1(puzzleInput.real))
     println(day05_part2(puzzleInput.real))

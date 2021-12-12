@@ -11,8 +11,8 @@ fun main() {
         input.first().split(',').map(String::toInt)
     }
 
-    checkWithOutput(day07_part1(puzzleInput.test), 37)
-    checkWithOutput(day07_part2(puzzleInput.test), 168)
+    puzzleInput.test(::day07_part1, listOf(37))
+    puzzleInput.test(::day07_part2, listOf(168))
 
     println(day07_part1(puzzleInput.real))
     println(day07_part2(puzzleInput.real))

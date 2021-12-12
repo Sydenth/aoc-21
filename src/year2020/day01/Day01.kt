@@ -8,8 +8,8 @@ import java.util.*
 fun main() {
     val puzzleInput = PuzzleInput(2020, 1, ::linesToInt)
 
-    checkWithOutput(day01_part1(puzzleInput.test), 514579)
-    checkWithOutput(day01_part2(puzzleInput.test), 241861950)
+    puzzleInput.test(::day01_part1, listOf(514579))
+    puzzleInput.test(::day01_part2, listOf(241861950))
 
     println(day01_part1(puzzleInput.real))
     println(day01_part2(puzzleInput.real))

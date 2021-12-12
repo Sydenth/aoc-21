@@ -6,10 +6,10 @@ import utils.columns
 import utils.rows
 
 fun main() {
-    val puzzleInput = PuzzleInput(2021, 4)
+    val puzzleInput = PuzzleInput(2021, 4) { it }
 
-    checkWithOutput(day04_part1(puzzleInput.test), 4512)
-    checkWithOutput(day04_part2(puzzleInput.test), 1924)
+    puzzleInput.test(::day04_part1, listOf(4512))
+    puzzleInput.test(::day04_part2, listOf(1924))
 
     println(day04_part1(puzzleInput.real))
     println(day04_part2(puzzleInput.real))

@@ -8,7 +8,7 @@ fun main() {
     val puzzleInput = PuzzleInput(0, 0, ::linesToInt)
 
     puzzleInput.test(::dayXY_part1, listOf(1))
-//    puzzleInput.test(::dayXY_part2, listOf(1)
+//    puzzleInput.test(::dayXY_part2, listOf(1))
 
     println(dayXY_part1(puzzleInput.real))
 //    println(dayXY_part2(puzzleInput.real))

@@ -7,8 +7,8 @@ import kotlin.math.pow
 fun main() {
     val puzzleInput = PuzzleInput(2021, 3) { it }
 
-    puzzleInput.test(::day03_part1, listOf(198))
-    puzzleInput.test(::day03_part2, listOf(230))
+    checkWithOutput(day03_part1(puzzleInput.tests[0]), 198)
+    checkWithOutput(day03_part2(puzzleInput.tests[0]), 230)
 
     println(day03_part1(puzzleInput.real))
     println(day03_part2(puzzleInput.real))

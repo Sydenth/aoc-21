@@ -8,8 +8,8 @@ import utils.rows
 fun main() {
     val puzzleInput = PuzzleInput(2021, 4) { it }
 
-    puzzleInput.test(::day04_part1, listOf(4512))
-    puzzleInput.test(::day04_part2, listOf(1924))
+    checkWithOutput(day04_part1(puzzleInput.tests[0]), 4512)
+    checkWithOutput(day04_part2(puzzleInput.tests[0]), 1924)
 
     println(day04_part1(puzzleInput.real))
     println(day04_part2(puzzleInput.real))

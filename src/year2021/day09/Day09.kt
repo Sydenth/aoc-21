@@ -13,8 +13,8 @@ fun main() {
         }.let(::HeightMap)
     }
 
-    puzzleInput.test(::day09_part1, listOf(15))
-    puzzleInput.test(::day09_part2, listOf(1134))
+    checkWithOutput(day09_part1(puzzleInput.tests[0]), 15)
+    checkWithOutput(day09_part2(puzzleInput.tests[0]), 1134)
 
     println(day09_part1(puzzleInput.real))
     println(day09_part2(puzzleInput.real))

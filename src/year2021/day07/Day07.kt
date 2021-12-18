@@ -2,17 +2,15 @@ package year2021.day07
 
 import utils.PuzzleInput
 import utils.checkWithOutput
-import utils.printAll
 import kotlin.math.abs
-import kotlin.math.pow
 
 fun main() {
     val puzzleInput = PuzzleInput(2021, 7) { input ->
         input.first().split(',').map(String::toInt)
     }
 
-    puzzleInput.test(::day07_part1, listOf(37))
-    puzzleInput.test(::day07_part2, listOf(168))
+    checkWithOutput(day07_part1(puzzleInput.tests[0]), 37)
+    checkWithOutput(day07_part2(puzzleInput.tests[0]), 168)
 
     println(day07_part1(puzzleInput.real))
     println(day07_part2(puzzleInput.real))

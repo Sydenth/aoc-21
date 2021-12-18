@@ -6,8 +6,8 @@ import utils.checkWithOutput
 fun main() {
     val puzzleInput = PuzzleInput(2020, 2, ::parseInput)
 
-    puzzleInput.test(::day02_part1, listOf(2))
-    puzzleInput.test(::day02_part2, listOf(1))
+    checkWithOutput(day02_part1(puzzleInput.tests[0]), 2)
+    checkWithOutput(day02_part2(puzzleInput.tests[0]), 1)
 
     println(day02_part1(puzzleInput.real))
     println(day02_part2(puzzleInput.real))

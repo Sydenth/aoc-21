@@ -7,8 +7,8 @@ import java.util.*
 fun main() {
     val puzzleInput = PuzzleInput(2021, 10) { input -> input.map(::Command) }
 
-    puzzleInput.test(::day10_part1, listOf(26397))
-    puzzleInput.test(::day10_part2, listOf(288957))
+    checkWithOutput(day10_part1(puzzleInput.tests[0]), 26397)
+    checkWithOutput(day10_part2(puzzleInput.tests[0]), 288957)
 
     println(day10_part1(puzzleInput.real))
     println(day10_part2(puzzleInput.real))

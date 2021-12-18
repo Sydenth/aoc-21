@@ -14,6 +14,8 @@ fun printAll(vararg obj: Any) {
     println(obj.joinToString(", "))
 }
 
+fun Collection<*>.println(): Unit = forEach(::println)
+
 fun linesToInt(input: List<String>): List<Int> = input.map(String::toInt)
 fun linesToLong(input: List<String>): List<Long> = input.map(String::toLong)
 

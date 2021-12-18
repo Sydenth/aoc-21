@@ -15,8 +15,8 @@ fun main() {
         }.let(::Grid)
     }
 
-    puzzleInput.test(::day11_part1, listOf(1656))
-    puzzleInput.test(::day11_part2, listOf(195))
+    checkWithOutput(day11_part1(puzzleInput.tests[0]), 1656)
+    checkWithOutput(day11_part2(puzzleInput.tests[0]), 195)
 
     println(day11_part1(puzzleInput.real))
     println(day11_part2(puzzleInput.real))

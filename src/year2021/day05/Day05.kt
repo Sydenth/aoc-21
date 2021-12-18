@@ -2,13 +2,12 @@ package year2021.day05
 
 import utils.PuzzleInput
 import utils.checkWithOutput
-import java.lang.Integer.max
 
 fun main() {
     val puzzleInput = PuzzleInput(2021, 5, ::parseInput)
 
-    puzzleInput.test(::day05_part1, listOf(5))
-    puzzleInput.test(::day05_part2, listOf(12))
+    checkWithOutput(day05_part1(puzzleInput.tests[0]), 5)
+    checkWithOutput(day05_part2(puzzleInput.tests[0]), 12)
 
     println(day05_part1(puzzleInput.real))
     println(day05_part2(puzzleInput.real))

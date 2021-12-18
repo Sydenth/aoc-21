@@ -3,13 +3,12 @@ package year2020.day01
 import utils.PuzzleInput
 import utils.checkWithOutput
 import utils.linesToInt
-import java.util.*
 
 fun main() {
     val puzzleInput = PuzzleInput(2020, 1, ::linesToInt)
 
-    puzzleInput.test(::day01_part1, listOf(514579))
-    puzzleInput.test(::day01_part2, listOf(241861950))
+    checkWithOutput(day01_part1(puzzleInput.tests[0]), 514579)
+    checkWithOutput(day01_part2(puzzleInput.tests[0]), 241861950)
 
     println(day01_part1(puzzleInput.real))
     println(day01_part2(puzzleInput.real))

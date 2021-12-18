@@ -8,8 +8,8 @@ fun main() {
         input.map { line -> line.map(Seat::of) }.let(::SeatPlan)
     }
 
-    puzzleInput.test(::day11_part1, listOf(37))
-    puzzleInput.test(::day11_part2, listOf(1))
+    checkWithOutput(day11_part1(puzzleInput.tests[0]), 37)
+    checkWithOutput(day11_part2(puzzleInput.tests[0]), 1)
 
 //    println(day11_part1(puzzleInput.real))
 //    println(day11_part2(puzzleInput.real))

@@ -11,15 +11,10 @@ class PuzzleInput<T>(year: Int, day: Int, parse: (List<String>) -> T) {
 
     val real: T = parse(Paths.get("$path.txt").readLines())
 
-    private val tests: List<T> = (1..9).mapNotNull { index ->
+    val tests: List<T> = (1..9).mapNotNull { index ->
         val indexStr = if (index == 1) "" else index.toString()
         Paths.get("${path}_test$indexStr.txt").readLinesOrNull()
     }.map(parse)
-
-    fun <R> test(block: (T) -> R, expected: List<R>) {
-        check(tests.size == expected.size) { "tests.size (${tests.size} != expected.size (${expected.size})" }
-        tests.zip(expected) { testInput, expectedOutput -> checkWithOutput(block(testInput), expectedOutput) }
-    }
 }
 
 private fun Path.readLinesOrNull(): List<String>? {

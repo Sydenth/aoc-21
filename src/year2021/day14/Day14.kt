@@ -2,8 +2,6 @@ package year2021.day14
 
 import utils.PuzzleInput
 import utils.checkWithOutput
-import utils.linesToInt
-import utils.printAll
 
 fun main() {
     val puzzleInput = PuzzleInput(2021, 14) { list ->
@@ -13,8 +11,8 @@ fun main() {
         }
     }
 
-    puzzleInput.test(::day14_part1, listOf(1588L))
-    puzzleInput.test(::day14_part2, listOf(2188189693529L))
+    checkWithOutput(day14_part1(puzzleInput.tests[0]), 1588L)
+    checkWithOutput(day14_part2(puzzleInput.tests[0]), 2188189693529L)
 
     println(day14_part1(puzzleInput.real))
     println(day14_part2(puzzleInput.real))

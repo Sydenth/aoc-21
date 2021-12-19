@@ -1,12 +1,13 @@
 package year2021.day15
 
 import utils.PuzzleInput
+import utils.checkWithOutput
 
 fun main() {
     val puzzleInput = PuzzleInput(2021, 15, ::State)
 
-    puzzleInput.test(::day15_part1, listOf(315))
-//    puzzleInput.test(::day15_part2, listOf(1))
+    checkWithOutput(day15_part1(puzzleInput.tests[0]), 315)
+//    checkWithOutput(day15_part2(puzzleInput.tests[0]), 1)
 
     println(day15_part1(puzzleInput.real))
 //    println(day15_part2(puzzleInput.real))
